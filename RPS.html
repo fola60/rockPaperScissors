@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rockPaperScissors</title>
+</head>
+<body>
+    <script>
+        /** 1. comp needs to get random number between 1 and 3,
+         * 2. let each number = either 'rock' 'paper' or 'scissors'
+         * 3. return R P or C
+         * 4. if return = rock and mine = paper print i win etc
+         * 5. store return in a value
+         * 6.  */
+        var rockComputer 
+        var paperComputer  
+        var scissorsComputer  
+        var rockPlayer 
+        var paperPlayer 
+        var scissorsPlayer 
+
+        function getPlayerValue() {
+            playerInput = prompt("Type, rock paper or scissors to play.")
+            if (playerInput.toLowerCase().toString() === "rock") {
+                rockPlayer = true
+            }    
+            else if (playerInput.toLowerCase().toString() === "scissors") {
+                scissorsPlayer = true
+            }
+            else if (playerInput.toLowerCase().toString() === "paper") {
+                paperPlayer = true
+            }
+
+        }
+        getPlayerValue();
+        function getComputerValue() {
+            getComputerValue = Math.round(Math.random() * 30);
+            if (getComputerValue <= 10) {
+                rockComputer= true
+            }
+            else if(getComputerValue <= 20) {
+                paperComputer = true
+            }
+            else if(getComputerValue <=30) {
+                scissorsComputer = true
+            }  
+            
+        }
+        
+        function rockPaperScissors() {
+            getPlayerValue();
+            getComputerValue();
+            if (rockComputer === true && paperPlayer === true ) {
+                console.log("You win! Paper always beats rock, well done.")
+            }
+            else if (rockComputer === true && scissorsPlayer === true) {
+                console.log("You lose this time around, rock sadly beats scissors!")
+            }
+            else if (scissorsComputer === true && paperPlayer === true) {
+                console.log("You lose this time around, scissors sadly beats paper!")
+            }
+            else if (scissorsComputer === true && rockPlayer === true) {
+                console.log("You win, rock always beats scissors.")
+            }
+            else if (paperComputer === true && scissorsPlayer === true) {
+                console.log("You win, scissors always cuts paper.")
+            }
+            else if (paperComputer === true && rockPlayer) {
+                console.log("You lose,sadly rock loses to paper!")
+            }
+
+            else if(rockPlayer === true && paperComputer === true ) {
+                console.log("You win! Paper always beats rock, well done.")
+            }
+            else if (rockPlayer === true && scissorsComputer === true) {
+                console.log("You win this time around, rock beats scissors!")
+            }
+            else if (scissorsPlayer === true && paperComputer === true) {
+                console.log("You win this time around, scissors beats paper!")
+            }
+            else if (scissorsPlayer === true && rockComputer === true) {
+                console.log("You lose, rock always beats scissors.")
+            }
+            else if (paperPlayer === true && scissorsComputer === true) {
+                console.log("You lose, scissors always cuts paper.")
+            }
+            else if (paperPlayer === true && rockComputer) {
+                console.log("You win, rock loses to paper!")
+            }
+            else if (paperPlayer === true && paperComputer === true) {
+                console.log("Its a draw! Try again.")
+            }
+            else if (rockPlayer === true && rockComputer === true) {
+                console.log("Its a draw! Try again.")
+            }
+            else if (scissorsPlayer === true && scissorsComputer === true) {
+                console.log("Its a draw! Try again.")
+            }
+        }
+        
+        rockPaperScissors();
+    
+        
+    </script>
+</body>
+</html>
