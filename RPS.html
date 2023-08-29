@@ -13,12 +13,54 @@
          * 4. if return = rock and mine = paper print i win etc
          * 5. store return in a value
          * 6.  */
-        var rockComputer 
-        var paperComputer  
-        var scissorsComputer  
-        var rockPlayer 
-        var paperPlayer 
-        var scissorsPlayer 
+        let rockComputer 
+        let paperComputer  
+        let scissorsComputer  
+        let rockPlayer 
+        let paperPlayer 
+        let scissorsPlayer 
+
+        let computerScore
+        let playerScore 
+
+
+        function result1() {
+            console.log("You win! Paper always beats rock, well done.")
+        }
+
+        function result2() {
+            console.log("You lose this time around, rock sadly beats scissors!")
+        }
+
+        function result3() {
+            console.log("You lose this time around, scissors sadly beats paper!")
+        }
+
+        function result4() {
+            console.log("You win, rock beats scissors")
+        }
+
+        function result5() {
+            console.log("You win, scissors always cuts paper.")
+        }
+
+        function result6() {
+            console.log("You lose,sadly rock loses to paper!")
+        }
+
+
+        function result13() {
+            console.log("Its a draw! Try again.")
+        }
+
+        function result14() {
+            console.log("Its a draw! Try again.")
+        }
+
+        function result15() {
+            console.log("Its a draw! Try again.")
+        }
+
 
         function getPlayerValue() {
             playerInput = prompt("Type, rock paper or scissors to play.")
@@ -31,77 +73,69 @@
             else if (playerInput.toLowerCase().toString() === "paper") {
                 paperPlayer = true
             }
+            else {
+                console.log("Incorrect syntax try again!")
+            }
 
         }
-        getPlayerValue();
+        
         function getComputerValue() {
-            getComputerValue = Math.round(Math.random() * 30);
-            if (getComputerValue <= 10) {
-                rockComputer= true
+           let getCompVal = Math.round(Math.random() * 30);
+            if (getCompVal <= 10 && getCompVal >= 0) {
+                rockComputer = true
             }
-            else if(getComputerValue <= 20) {
+            else {
+                rockComputer = false
+            }
+
+            if(getCompVal <= 20 && getCompVal >= 11) {
                 paperComputer = true
             }
-            else if(getComputerValue <=30) {
+            else paperComputer = false
+
+            if(getCompVal <= 30 && getCompVal >= 21) {
                 scissorsComputer = true
             }  
+            else scissorsComputer = false
             
         }
         
         function rockPaperScissors() {
-            getPlayerValue();
-            getComputerValue();
+             getPlayerValue();
+             getComputerValue();
             if (rockComputer === true && paperPlayer === true ) {
-                console.log("You win! Paper always beats rock, well done.")
+                return result1();
             }
             else if (rockComputer === true && scissorsPlayer === true) {
-                console.log("You lose this time around, rock sadly beats scissors!")
+                return result2();
             }
             else if (scissorsComputer === true && paperPlayer === true) {
-                console.log("You lose this time around, scissors sadly beats paper!")
+                return result3();
             }
             else if (scissorsComputer === true && rockPlayer === true) {
-                console.log("You win, rock always beats scissors.")
+                return result4();
             }
             else if (paperComputer === true && scissorsPlayer === true) {
-                console.log("You win, scissors always cuts paper.")
+                return result5();
             }
-            else if (paperComputer === true && rockPlayer) {
-                console.log("You lose,sadly rock loses to paper!")
-            }
-
-            else if(rockPlayer === true && paperComputer === true ) {
-                console.log("You win! Paper always beats rock, well done.")
-            }
-            else if (rockPlayer === true && scissorsComputer === true) {
-                console.log("You win this time around, rock beats scissors!")
-            }
-            else if (scissorsPlayer === true && paperComputer === true) {
-                console.log("You win this time around, scissors beats paper!")
-            }
-            else if (scissorsPlayer === true && rockComputer === true) {
-                console.log("You lose, rock always beats scissors.")
-            }
-            else if (paperPlayer === true && scissorsComputer === true) {
-                console.log("You lose, scissors always cuts paper.")
-            }
-            else if (paperPlayer === true && rockComputer) {
-                console.log("You win, rock loses to paper!")
+            else if (paperComputer === true && rockPlayer === true) {
+                return result6();
             }
             else if (paperPlayer === true && paperComputer === true) {
-                console.log("Its a draw! Try again.")
+                return result13();
             }
             else if (rockPlayer === true && rockComputer === true) {
-                console.log("Its a draw! Try again.")
+                return result14();
             }
             else if (scissorsPlayer === true && scissorsComputer === true) {
-                console.log("Its a draw! Try again.")
+                return result15();
             }
+            
         }
-        
+        for (let i = 0; i < 5; i++) {
         rockPaperScissors();
-    
-        
+    }
+     
     </script>
 </body>
 </html>
