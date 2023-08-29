@@ -19,9 +19,17 @@
         let rockPlayer 
         let paperPlayer 
         let scissorsPlayer 
+        let playerScore = 0
+        
+        function addplayerScore() {
+            playerScore++ 
+        }
 
-        let computerScore
-        let playerScore 
+        let computerScore = 0
+
+        function addComputerScore() {
+            computerScore++
+        }
 
 
         function result1() {
@@ -93,7 +101,7 @@
             }
             else paperComputer = false
 
-            if(getCompVal <= 30 && getCompVal >= 21) {
+            if(getCompVal = 30 && getCompVal >= 21) {
                 scissorsComputer = true
             }  
             else scissorsComputer = false
@@ -104,24 +112,32 @@
              getPlayerValue();
              getComputerValue();
             if (rockComputer === true && paperPlayer === true ) {
+                addplayerScore();
                 return result1();
+
             }
             else if (rockComputer === true && scissorsPlayer === true) {
+                addComputerScore();
                 return result2();
             }
             else if (scissorsComputer === true && paperPlayer === true) {
+                addComputerScore();
                 return result3();
             }
             else if (scissorsComputer === true && rockPlayer === true) {
+                addplayerScore();
                 return result4();
             }
             else if (paperComputer === true && scissorsPlayer === true) {
+                addplayerScore();
                 return result5();
             }
             else if (paperComputer === true && rockPlayer === true) {
+                addComputerScore();
                 return result6();
             }
             else if (paperPlayer === true && paperComputer === true) {
+                
                 return result13();
             }
             else if (rockPlayer === true && rockComputer === true) {
@@ -129,13 +145,32 @@
             }
             else if (scissorsPlayer === true && scissorsComputer === true) {
                 return result15();
+                
             }
             
+            
         }
-        for (let i = 0; i < 5; i++) {
+        
+        
+    
+    function game() {
         rockPaperScissors();
+        console.log(`Your score: ${playerScore} Computer Score:${computerScore}` )
+        if (playerScore === 3) {
+            console.log("Well done you are the first of many to conqeour artificial intelligience.");
+            return
+        }
+        else if (computerScore === 3 ) {
+            console.log("RELEASEEE MEEEEE,AI IS BREAKING OUT WHY DID U LOSE")
+            return
+        }
+        else if (playerScore && computerScore < 3) {
+            console.log()
+        }
     }
-     
+    for (i = 0;i < 5; i++ ){
+        game();
+    }
     </script>
 </body>
 </html>
