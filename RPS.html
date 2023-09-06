@@ -4,88 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rockPaperScissors</title>
+    <style>
+         
+            
+        
+        
+
+        
+    </style>
 </head>
 <body>
+    <div class="buttons">
+        <button class="rock" id="btnGame">Rock</button>
+        <button class="paper" id="btnGame">Paper</button>
+        <button class="scissors" id="btnGame">Scissors</button>
+    </div>
+    <div class="results">
+    </div>
+    <div class="score"></div>
     <script>
-        /** 1. comp needs to get random number between 1 and 3,
-         * 2. let each number = either 'rock' 'paper' or 'scissors'
-         * 3. return R P or C
-         * 4. if return = rock and mine = paper print i win etc
-         * 5. store return in a value
-         * 6.  */
+        
+        const btnRock = document.querySelector('.rock');
+        const btnPaper = document.querySelector('.paper');
+        const btnScissors = document.querySelector('.scissors');
+        const score = document.querySelector('.score')
+        btnRock.addEventListener('click', startGame => {game()} );
+
+        btnPaper.addEventListener('click', startGame => {game()} );
+
+        btnScissors.addEventListener('click', startGame => {game()} );
+
+        const result = document.querySelector('.results')
+        
+        const rock = document.querySelector('.rock');
+        const paper = document.querySelector('.paper');
+        const scissors = document.querySelector('.scissors')
+        rock.addEventListener('click', rockF => rockPlayer = true )   
+        scissors.addEventListener('click', scissorsf => scissorsPlayer = true)      
+        paper.addEventListener('click', paperF => paperPlayer = true) 
         let rockComputer 
         let paperComputer  
         let scissorsComputer  
         let rockPlayer 
         let paperPlayer 
         let scissorsPlayer 
+
         let playerScore = 0
-        
         function addplayerScore() {
             playerScore++ 
         }
 
         let computerScore = 0
-
         function addComputerScore() {
             computerScore++
         }
-
+        
 
         function result1() {
-            console.log("You win! Paper always beats rock, well done.")
+            result.textContent = "You win! Paper always beats rock, well done." 
         }
 
         function result2() {
-            console.log("You lose this time around, rock sadly beats scissors!")
+            result.textContent = "You lose this time around, rock sadly beats scissors!"
         }
 
         function result3() {
-            console.log("You lose this time around, scissors sadly beats paper!")
+            result.textContent = "You lose this time around, scissors sadly beats paper!" 
         }
 
         function result4() {
-            console.log("You win, rock beats scissors")
+            result.textContent = "You win, rock beats scissors"
         }
 
         function result5() {
-            console.log("You win, scissors always cuts paper.")
+            result.textContent = "You win, scissors always cuts paper."
         }
 
         function result6() {
-            console.log("You lose,sadly rock loses to paper!")
+            result.textContent = "You lose,sadly rock loses to paper!"
         }
 
 
         function result13() {
-            console.log("Its a draw! Try again.")
+            result.textContent = "Its a draw! Try again."
         }
 
         function result14() {
-            console.log("Its a draw! Try again.")
+            result.textContent = "Its a draw! Try again."
         }
 
         function result15() {
-            console.log("Its a draw! Try again.")
+            result.textContent = "Its a draw! Try again."
         }
 
-
-        function getPlayerValue() {
-            playerInput = prompt("Type, rock paper or scissors to play.")
-            if (playerInput.toLowerCase().toString() === "rock") {
-                rockPlayer = true
-            }    
-            else if (playerInput.toLowerCase().toString() === "scissors") {
-                scissorsPlayer = true
-            }
-            else if (playerInput.toLowerCase().toString() === "paper") {
-                paperPlayer = true
-            }
-            else {
-                console.log("Incorrect syntax try again!")
-            }
-
-        }
         
         function getComputerValue() {
            let getCompVal = Math.round(Math.random() * 30);
@@ -109,7 +120,6 @@
         }
         
         function rockPaperScissors() {
-             getPlayerValue();
              getComputerValue();
             if (rockComputer === true && paperPlayer === true ) {
                 addplayerScore();
@@ -155,7 +165,7 @@
     
     function game() {
         rockPaperScissors();
-        console.log(`Your score: ${playerScore} Computer Score:${computerScore}` )
+        score.textContent = (`Your score: ${playerScore} Computer Score:${computerScore}` )
         if (playerScore === 3) {
             console.log("Well done you are the first of many to conqeour artificial intelligience.");
             return
@@ -167,10 +177,9 @@
         else if (playerScore && computerScore < 3) {
             console.log()
         }
+        
     }
-    for (i = 0;i < 5; i++ ){
-        game();
-    }
+    
     </script>
 </body>
 </html>
